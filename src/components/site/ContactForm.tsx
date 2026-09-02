@@ -235,9 +235,9 @@ function Field({
   id: string;
   label: string;
   input: React.ReactNode;
-  error?: string;
-  required?: boolean;
-  hint?: string;
+  error?: string | undefined;
+  required?: boolean | undefined;
+  hint?: string | undefined;
 }) {
   return (
     <div>
