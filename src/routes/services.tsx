@@ -7,6 +7,7 @@ import { StickyCallBar } from "@/components/site/StickyCallBar";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CtaSection } from "@/components/site/CtaSection";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
+import { GoogleReviewsFrame } from "@/components/site/GoogleReviewsFrame";
 import { WorkCarousel } from "@/components/site/WorkCarousel";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
@@ -16,6 +17,9 @@ import { business } from "@/lib/business";
 const TITLE = "Plumbing & Handyman Services | Rob West";
 const DESC =
   "Plumbing and handyman services from Rob West. Get in touch with Rob on 07884 584645 to discuss what you need.";
+
+const PLUMBING_SUMMARY =
+  "Leak detection and repair, pipe, tap, shower, toilet and water-tank installation and repair, water-heater installation, drain and sewer cleaning and repair, and outdoor plumbing-system repair.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -33,18 +37,55 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
+const SERVICE_GROUPS = {
+  Plumbing: [
+    {
+      title: "Leaks & Pipe Repairs",
+      description: "Leak detection and repair, including plumbing pipe repair.",
+      imageSrc: "/images/work/work-1.jpg",
+    },
+    {
+      title: "Bathroom & Water Systems",
+      description:
+        "Shower, tap and toilet installation and repair, plus water-heater and water-tank installation and repair.",
+      imageSrc: "/images/work/work-2.jpg",
+    },
+    {
+      title: "Drains, Sewers & Outdoor Plumbing",
+      description: "Drain and sewer cleaning and repair, alongside outdoor plumbing-system repair.",
+      imageSrc: "/images/work/work-3.jpg",
+    },
+  ],
+  Handyman: [
+    {
+      title: "Bathroom Fixture Help",
+      description: "Practical help with tap, shower and toilet installation or repair.",
+      imageSrc: "/images/work/work-4.jpg",
+    },
+    {
+      title: "Water & Pipe Repairs",
+      description: "Help with pipe and water-tank repairs as part of wider home maintenance.",
+      imageSrc: "/images/work/work-5.jpg",
+    },
+    {
+      title: "Home & Outdoor Repairs",
+      description:
+        "General home repair help, including drain, sewer and outdoor plumbing-system work. Get in touch to discuss the job.",
+      imageSrc: "/images/work/work-6.jpg",
+    },
+  ],
+} as const;
+
 function ServiceGrid({ kind }: { kind: "Plumbing" | "Handyman" }) {
   const Icon = kind === "Plumbing" ? Droplets : Hammer;
-  const imageSrc =
-    kind === "Plumbing" ? "/images/plumbing-service.jpg" : "/images/handyman-service.jpg";
   return (
-    <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {[1, 2, 3, 4].map((i) => (
-        <Reveal as="li" key={i} delay={i * 50}>
+    <ul className="mt-8 grid gap-5 md:grid-cols-3">
+      {SERVICE_GROUPS[kind].map((service, i) => (
+        <Reveal as="li" key={service.title} delay={i * 50}>
           <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
             <ImagePlaceholder
-              label={`${kind} Work`}
-              imageSrc={imageSrc}
+              label={`${service.title} work`}
+              imageSrc={service.imageSrc}
               ratio="16/9"
               className="rounded-none border-0 border-b"
             />
@@ -52,11 +93,8 @@ function ServiceGrid({ kind }: { kind: "Plumbing" | "Handyman" }) {
               <span className="flex size-10 items-center justify-center rounded-lg bg-surface text-primary">
                 <Icon className="size-5" aria-hidden="true" />
               </span>
-              <h3 className="mt-3.5 text-base font-bold text-navy">{kind} Service</h3>
-              <p className="mt-2 flex-1 text-sm text-muted-foreground">
-                [Add confirmed {kind.toLowerCase()} service here] — placeholder description to be
-                replaced.
-              </p>
+              <h3 className="mt-3.5 text-base font-bold text-navy">{service.title}</h3>
+              <p className="mt-2 flex-1 text-sm text-muted-foreground">{service.description}</p>
               <Link
                 to="/contact"
                 className="mt-4 self-start rounded text-sm font-bold text-primary hover:text-accent"
@@ -106,7 +144,7 @@ function ServicesPage() {
               <SectionHeading
                 eyebrow="Plumbing"
                 title="Plumbing Services"
-                description="Placeholder — add confirmed plumbing services here."
+                description={PLUMBING_SUMMARY}
               />
             </Reveal>
             <ServiceGrid kind="Plumbing" />
@@ -119,7 +157,7 @@ function ServicesPage() {
               <SectionHeading
                 eyebrow="Handyman"
                 title="Handyman Services"
-                description="Placeholder — add confirmed handyman services here."
+                description="Practical home repairs including tap, shower and toilet work, pipe and water-tank repairs, drain and sewer cleaning, and other jobs around the home. Get in touch to discuss the work you need carried out."
               />
             </Reveal>
             <ServiceGrid kind="Handyman" />
@@ -132,7 +170,7 @@ function ServicesPage() {
               <SectionHeading
                 eyebrow="Gallery"
                 title="Recent Work"
-                description="Placeholder images — real project photos will be added here."
+                description="A selection of Rob's recent work. Photos will be added here as projects are completed."
               />
             </Reveal>
             <Reveal delay={80} className="mt-10">

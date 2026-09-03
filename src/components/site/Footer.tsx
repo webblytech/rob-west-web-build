@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { business } from "@/lib/business";
 
@@ -12,21 +12,21 @@ export function Footer() {
             <p className="text-lg font-extrabold">{business.name}</p>
             <p className="mt-1 text-sm text-navy-foreground/70">{business.tagline}</p>
             <div className="mt-5 flex flex-row flex-wrap items-center gap-x-6 gap-y-3">
-            <a
-              href={business.phoneHref}
-              className="inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight hover:text-navy-foreground/80"
-            >
-              <Phone className="size-5" aria-hidden="true" />
-              {business.phoneDisplay}
-            </a>
-
-            <Button asChild variant="onNavy" size="lg">
-              <a href={business.phoneHref}>
-                <Phone aria-hidden="true" />
-                Call Rob
+              <a
+                href={business.phoneHref}
+                className="inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight hover:text-navy-foreground/80"
+              >
+                <Phone className="size-5" aria-hidden="true" />
+                {business.phoneDisplay}
               </a>
-            </Button>
-          </div>
+
+              <Button asChild variant="onNavy" size="lg">
+                <a href={business.phoneHref}>
+                  <Phone aria-hidden="true" />
+                  Call Rob
+                </a>
+              </Button>
+            </div>
           </div>
 
           <nav aria-label="Footer">
@@ -59,13 +59,28 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-navy-foreground/80">
               <li className="flex gap-2.5">
                 <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                <span>Service area: {business.areaPlaceholder}</span>
+                <span>Address: {business.address}</span>
               </li>
               <li className="flex gap-2.5">
                 <Mail className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                <span>Email: {business.emailPlaceholder}</span>
+                <a href={`mailto:${business.email}`} className="hover:text-white">
+                  Email: {business.email}
+                </a>
               </li>
-              <li className="text-navy-foreground/60">[Add social media links if applicable]</li>
+              <li>
+                <span>Hours: Mon–Fri, 10am–7pm</span>
+              </li>
+              <li>
+                <a
+                  href={business.googleMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 font-semibold text-navy-foreground transition-colors hover:text-white"
+                >
+                  Read Google reviews
+                  <ExternalLink className="size-3.5" aria-hidden="true" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -74,7 +89,9 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {business.name}. All rights reserved.
           </p>
-          <p>Rated {business.rating} on Google from {business.reviewCount}+ reviews.</p>
+          <p>
+            Rated {business.rating} on Google from {business.reviewCount}+ reviews.
+          </p>
         </div>
       </div>
     </footer>

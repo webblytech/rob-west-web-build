@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, Wrench, X } from "lucide-react";
+import { House, Info, Mail, Menu, Phone, Wrench, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { business } from "@/lib/business";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", label: "Home", icon: House },
+  { to: "/services", label: "Services", icon: Wrench },
+  { to: "/about", label: "About", icon: Info },
+  { to: "/contact", label: "Contact", icon: Mail },
 ] as const;
 
 export function Header() {
@@ -33,8 +33,8 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur transition-shadow",
-        scrolled ? "border-border shadow-[0_1px_12px_-6px_oklch(0.23_0.045_250/0.4)]" : "border-transparent",
+        "sticky top-0 z-50 w-full border-b-2 border-primary/25 bg-background/95 backdrop-blur transition-shadow",
+        scrolled ? "border-primary/45 shadow-[0_1px_12px_-6px_oklch(0.23_0.045_250/0.4)]" : "",
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
@@ -83,31 +83,35 @@ export function Header() {
           </Button>
           <Button
             variant="quote"
-            size="icon"
-            className="h-11 w-11 lg:hidden"
+            className="h-11 gap-2 px-3 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+            <span>{open ? "Close" : "Menu"}</span>
           </Button>
         </div>
       </div>
 
       {open ? (
-        <div id="mobile-nav" className="border-t border-border bg-background lg:hidden">
+        <div id="mobile-nav" className="border-t border-primary/15 bg-background lg:hidden">
           <nav aria-label="Mobile" className="container-page py-4">
+            <p className="mb-2 px-2 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+              Site menu
+            </p>
             <ul className="flex flex-col">
               {NAV.map((item) => (
                 <li key={item.to}>
                   <Link
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className="block rounded-md px-2 py-3.5 text-base font-semibold text-navy border-b border-border/70"
+                    className="flex items-center gap-3 rounded-md border-b border-border/70 px-2 py-3.5 text-base font-semibold text-navy"
                     activeProps={{ className: "text-primary" }}
                     activeOptions={{ exact: item.to === "/" }}
                   >
+                    <item.icon className="size-4 text-primary" aria-hidden="true" />
                     {item.label}
                   </Link>
                 </li>

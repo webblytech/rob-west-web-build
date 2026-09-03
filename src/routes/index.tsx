@@ -15,18 +15,18 @@ import { Footer } from "@/components/site/Footer";
 import { StickyCallBar } from "@/components/site/StickyCallBar";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ServiceCard } from "@/components/site/ServiceCard";
-import { ReviewCard } from "@/components/site/ReviewCard";
+import { GoogleReviewsFrame } from "@/components/site/GoogleReviewsFrame";
+import { WorkCarousel } from "@/components/site/WorkCarousel";
 import { CtaSection } from "@/components/site/CtaSection";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import robPlumbingHero from "@/images/Rob-plumbing-hero.jpeg";
-import { WorkCarousel } from "@/components/site/WorkCarousel";
 import { Reveal } from "@/components/site/Reveal";
 import { GoogleRating, Stars } from "@/components/site/StarRating";
 import { business } from "@/lib/business";
 
-const TITLE = "Rob West Plumbing & Handyman | Plumbing & Handyman Services";
+const TITLE = "Rob West Plumbing And Handyman | Plumbing & Handyman Services";
 const DESC =
-  "Rob West Plumbing & Handyman provides plumbing and handyman help. Rated 5.0 on Google from 31+ reviews. Call Rob on 07884 584645.";
+  "Rob West Plumbing And Handyman provides plumbing and handyman help. Rated 5.0 on Google from 31+ reviews. Call Rob on 07884 584645.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,9 +63,9 @@ export const Route = createFileRoute("/")({
 
 const TRUST = [
   { icon: Star, title: "5.0 ★ Google Rating", note: `${business.reviewCount}+ reviews` },
-  { icon: MapPin, title: "Local Service", note: business.areaPlaceholder },
-  { icon: ShieldCheck, title: "Placeholder Trust Signal", note: "[Replace or remove]" },
-  { icon: Wrench, title: "Placeholder Accreditation", note: "[Replace or remove]" },
+  { icon: MapPin, title: "Local Service", note: business.address },
+  { icon: ShieldCheck, title: "Direct contact with Rob", note: "One point of contact" },
+  { icon: Wrench, title: "Opening Hours", note: "Mon–Fri, 10am–7pm" },
 ];
 
 const STEPS = [
@@ -81,6 +81,12 @@ const BENEFITS = [
   { icon: MapPin, title: "Local, personal service", body: "You deal with Rob — not a call centre." },
 ];
 
+const PLUMBING_SUMMARY =
+  "Leak detection and repair, pipe, tap, shower, toilet and water-tank installation and repair, water-heater installation, drain and sewer cleaning and repair, and outdoor plumbing-system repair.";
+
+const HANDYMAN_SUMMARY =
+  "Practical home repairs including tap, shower and toilet work, pipe and water-tank repairs, drain and sewer cleaning, and other jobs around the home. Get in touch to discuss the work you need carried out.";
+
 function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -91,10 +97,10 @@ function HomePage() {
           <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 bg-surface lg:block" />
           <div className="container-page relative grid items-center gap-1 pt-5 pb-14 lg:grid-cols-2 lg:gap-10 lg:py-24">
             <Reveal className="lg:col-start-1 lg:row-start-1">
-              <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-primary">
+              {/* <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-primary">
                 <Wrench className="size-3.5" aria-hidden="true" />
                 Plumbing &amp; Handyman
-              </p>
+              </p> */}
               <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-navy sm:text-5xl lg:mt-8 lg:text-[3.4rem]">
                 Reliable Plumbing &amp; Handyman Services
               </h1>
@@ -103,7 +109,7 @@ function HomePage() {
               <img
                 src={robPlumbingHero}
                 alt="Rob West working on a plumbing job"
-                className="aspect-[4/3] w-full rounded-lg object-cover shadow-[var(--shadow-lift)]"
+                className="image-frame hero-float aspect-[4/3] w-full rounded-lg object-cover shadow-[var(--shadow-lift)]"
               />
             </Reveal>
             <Reveal className="lg:col-start-1 lg:row-start-2">
@@ -163,15 +169,15 @@ function HomePage() {
               <SectionHeading
                 eyebrow="Services"
                 title="How Can Rob Help?"
-                description="Two main areas of work. Specific services will be listed here once confirmed."
+                description="Plumbing services alongside practical handyman help for local homeowners."
               />
             </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
               <Reveal delay={60}>
                 <ServiceCard
                   icon={Droplets}
                   title="Plumbing Services"
-                  description="Placeholder — add confirmed plumbing services here."
+                  description={PLUMBING_SUMMARY}
                   imageLabel="Plumbing Work"
                   imageSrc="/images/plumbing-service.jpg"
                 />
@@ -180,7 +186,7 @@ function HomePage() {
                 <ServiceCard
                   icon={Hammer}
                   title="Handyman Services"
-                  description="Placeholder — add confirmed handyman services here."
+                  description={HANDYMAN_SUMMARY}
                   imageLabel="Handyman Work"
                   imageSrc="/images/handyman-service.jpg"
                 />
@@ -191,7 +197,7 @@ function HomePage() {
 
         {/* WHY CHOOSE ROB */}
         <section className="bg-surface section-y">
-          <div className="container-page grid items-center gap-12 lg:grid-cols-2">
+          <div className="container-page grid items-center gap-10 lg:grid-cols-2">
             <Reveal>
               <ImagePlaceholder
                 label="About Section Photo"
@@ -206,7 +212,7 @@ function HomePage() {
                 title="A Straightforward Service, From Start to Finish"
                 description="A local, personal service — easy to arrange and easy to deal with."
               />
-              <ul className="mt-8 grid gap-5 sm:grid-cols-2">
+              <ul className="mt-6 grid gap-4 sm:grid-cols-2">
                 {BENEFITS.map((b) => (
                   <li key={b.title} className="flex gap-3">
                     <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-md bg-background text-primary shadow-[var(--shadow-card)]">
@@ -229,7 +235,7 @@ function HomePage() {
             <Reveal>
               <SectionHeading eyebrow="How it works" title="Three Simple Steps" align="center" />
             </Reveal>
-            <ol className="mt-10 grid gap-6 md:grid-cols-3">
+            <ol className="mt-8 grid gap-5 md:grid-cols-3">
               {STEPS.map((s, i) => (
                 <Reveal as="li" key={s.n} delay={i * 70}>
                   <div className="h-full rounded-xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-lift)]">
@@ -258,12 +264,10 @@ function HomePage() {
                 reviews
               </p>
             </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {[1, 2, 3].map((i) => (
-                <Reveal key={i} delay={i * 70}>
-                  <ReviewCard index={i} />
-                </Reveal>
-              ))}
+            <div className="mt-8">
+              <Reveal delay={80}>
+                <GoogleReviewsFrame />
+              </Reveal>
             </div>
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
               <Button asChild variant="call" size="lg">
@@ -286,7 +290,7 @@ function HomePage() {
               <SectionHeading
                 eyebrow="Gallery"
                 title="Recent Work"
-                description="Take a look at some recent work. The images below are placeholders — real project photos will be added here."
+                description="A selection of Rob's recent work. Photos will be added here as projects are completed."
               />
             </Reveal>
             <Reveal delay={80} className="mt-10">

@@ -10,11 +10,13 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { Stars } from "@/components/site/StarRating";
+import { GoogleReviewsFrame } from "@/components/site/GoogleReviewsFrame";
+import { OpeningHours } from "@/components/site/OpeningHours";
 import { business } from "@/lib/business";
 
-const TITLE = "About Rob | Rob West Plumbing & Handyman";
+const TITLE = "About Rob | Rob West Plumbing And Handyman";
 const DESC =
-  "Meet Rob of Rob West Plumbing & Handyman — a local, personal plumbing and handyman service. Rated 5.0 on Google from 31+ reviews.";
+  "Meet Rob of Rob West Plumbing And Handyman — a local, personal plumbing and handyman service. Rated 5.0 on Google from 31+ reviews.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -49,22 +51,22 @@ function AboutPage() {
         </section>
 
         <section className="section-y">
-          <div className="container-page grid items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div className="container-page grid items-start gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">
             <Reveal>
               <ImagePlaceholder
                 label="Rob's Photo"
                 imageSrc="/images/about-rob.jpg"
                 ratio="3/4"
-                className="shadow-[var(--shadow-lift)]"
+                className="mx-auto max-w-md shadow-[var(--shadow-lift)] lg:mx-0"
               />
             </Reveal>
             <Reveal delay={80}>
               <SectionHeading
                 eyebrow="About"
-                title="About Rob West Plumbing & Handyman"
-                description="Rob West Plumbing & Handyman offers plumbing and handyman assistance for local homeowners."
+                title="About Rob West Plumbing And Handyman"
+                description="Rob West Plumbing And Handyman offers plumbing and handyman assistance for local homeowners."
               />
-              <div className="mt-6 space-y-4 rounded-xl border border-dashed border-navy/20 bg-surface p-6">
+              <div className="mt-5 space-y-3 rounded-xl border border-dashed border-navy/20 bg-surface p-5 sm:p-6">
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
                   Placeholder content
                 </p>
@@ -73,7 +75,7 @@ function AboutPage() {
                   [Add any further detail Rob would like included on this page.]
                 </p>
               </div>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Button asChild variant="call" size="xl">
                   <a href={business.phoneHref}>
                     <Phone aria-hidden="true" />
@@ -84,25 +86,31 @@ function AboutPage() {
                   <Link to="/contact">Request a Quote</Link>
                 </Button>
               </div>
+              <OpeningHours compact />
             </Reveal>
           </div>
         </section>
 
         <section className="bg-surface section-y">
           <div className="container-page">
-            <Reveal className="mx-auto max-w-3xl rounded-xl border border-border bg-card p-8 text-center shadow-[var(--shadow-card)]">
-              <Stars className="justify-center" />
-              <p className="mt-4 text-4xl font-extrabold text-navy">{business.rating}</p>
-              <p className="mt-1 font-semibold text-navy">Google Rating</p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                {business.reviewCount} Google reviews
-              </p>
-            </Reveal>
+            <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+              <Reveal className="rounded-xl border border-border bg-card p-8 text-center shadow-[var(--shadow-card)]">
+                <Stars className="justify-center" />
+                <p className="mt-4 text-4xl font-extrabold text-navy">{business.rating}</p>
+                <p className="mt-1 font-semibold text-navy">Google Rating</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {business.reviewCount} Google reviews
+                </p>
+              </Reveal>
+              <Reveal delay={80}>
+                <GoogleReviewsFrame />
+              </Reveal>
+            </div>
           </div>
         </section>
 
         <section className="section-y">
-          <div className="container-page grid items-center gap-12 lg:grid-cols-2">
+          <div className="container-page grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
             <Reveal>
               <SectionHeading
                 eyebrow="Working with Rob"
