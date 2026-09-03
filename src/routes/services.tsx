@@ -35,6 +35,8 @@ export const Route = createFileRoute("/services")({
 
 function ServiceGrid({ kind }: { kind: "Plumbing" | "Handyman" }) {
   const Icon = kind === "Plumbing" ? Droplets : Hammer;
+  const imageSrc =
+    kind === "Plumbing" ? "/images/plumbing-service.jpg" : "/images/handyman-service.jpg";
   return (
     <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {[1, 2, 3, 4].map((i) => (
@@ -42,6 +44,7 @@ function ServiceGrid({ kind }: { kind: "Plumbing" | "Handyman" }) {
           <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
             <ImagePlaceholder
               label={`${kind} Work`}
+              imageSrc={imageSrc}
               ratio="16/9"
               className="rounded-none border-0 border-b"
             />

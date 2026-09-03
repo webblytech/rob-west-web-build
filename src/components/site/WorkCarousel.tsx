@@ -5,16 +5,23 @@ import { ImagePlaceholder } from "./ImagePlaceholder";
 import { cn } from "@/lib/utils";
 
 const SLIDES = [
-  "Project Photo",
-  "Plumbing Work",
-  "Handyman Work",
-  "Completed Job",
-  "Project Photo",
-  "Handyman Work",
+  { label: "Finished modern bathroom renovation", src: "/images/recent-work-bathroom.jpg" },
+  { label: "Plumber carrying out domestic plumbing work", src: "/images/recent-work-plumbing.jpg" },
+  { label: "Handyman installing shelving", src: "/images/recent-work-shelving.jpg" },
+  { label: "Finished carpentry and joinery project", src: "/images/recent-work-joinery.jpg" },
+  {
+    label: "Professional kitchen sink and tap installation",
+    src: "/images/recent-work-kitchen.jpg",
+  },
+  { label: "Handyman carrying out a domestic repair", src: "/images/recent-work-repair.jpg" },
 ];
 
 export function WorkCarousel() {
-  const [emblaRef, embla] = useEmblaCarousel({ align: "start", loop: false, containScroll: "trimSnaps" });
+  const [emblaRef, embla] = useEmblaCarousel({
+    align: "start",
+    loop: false,
+    containScroll: "trimSnaps",
+  });
   const [selected, setSelected] = useState(0);
   const [snaps, setSnaps] = useState<number[]>([]);
   const [canPrev, setCanPrev] = useState(false);
@@ -38,7 +45,7 @@ export function WorkCarousel() {
     <div>
       <div className="overflow-hidden" ref={emblaRef}>
         <ul className="-ml-4 flex touch-pan-y">
-          {SLIDES.map((label, i) => (
+          {SLIDES.map((slide, i) => (
             <li
               key={i}
               className="min-w-0 shrink-0 grow-0 basis-[85%] pl-4 sm:basis-1/2 lg:basis-1/3"
@@ -47,10 +54,10 @@ export function WorkCarousel() {
             >
               <div className="group overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-lift)]">
                 <ImagePlaceholder
-                  label={label}
+                  label={slide.label}
+                  imageSrc={slide.src}
                   ratio="4/3"
                   className="rounded-none border-0 transition-transform duration-500 group-hover:scale-[1.02]"
-                  note="Placeholder — replace with real photo"
                 />
               </div>
             </li>

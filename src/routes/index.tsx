@@ -95,7 +95,14 @@ function HomePage() {
                 <Wrench className="size-3.5" aria-hidden="true" />
                 Plumbing &amp; Handyman
               </p>
-              <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] text-navy sm:text-5xl lg:text-[3.4rem]">
+              <Reveal delay={120} className="mt-8 lg:pl-4">
+                <img
+                  src={robPlumbingHero}
+                  alt="Rob West working on a plumbing job"
+                  className="aspect-[4/3] w-full rounded-lg object-cover shadow-[var(--shadow-lift)]"
+                />
+              </Reveal>
+              <h1 className="mt-8 text-4xl font-extrabold leading-[1.05] text-navy sm:text-5xl lg:text-[3.4rem]">
                 Reliable Plumbing &amp; Handyman Services
               </h1>
               <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground">
@@ -128,13 +135,6 @@ function HomePage() {
               </div>
             </Reveal>
 
-            <Reveal delay={120} className="lg:pl-4">
-              <img
-                src={robPlumbingHero}
-                alt="Rob West working on a plumbing job"
-                className="aspect-[4/3] w-full rounded-lg object-cover shadow-[var(--shadow-lift)]"
-              />
-            </Reveal>
           </div>
         </section>
 
@@ -172,6 +172,7 @@ function HomePage() {
                   title="Plumbing Services"
                   description="Placeholder — add confirmed plumbing services here."
                   imageLabel="Plumbing Work"
+                  imageSrc="/images/plumbing-service.jpg"
                 />
               </Reveal>
               <Reveal delay={120}>
@@ -180,6 +181,7 @@ function HomePage() {
                   title="Handyman Services"
                   description="Placeholder — add confirmed handyman services here."
                   imageLabel="Handyman Work"
+                  imageSrc="/images/handyman-service.jpg"
                 />
               </Reveal>
             </div>
@@ -192,8 +194,8 @@ function HomePage() {
             <Reveal>
               <ImagePlaceholder
                 label="About Section Photo"
+                imageSrc="/images/about-rob.jpg"
                 ratio="3/4"
-                note="Placeholder — add a photo of Rob or recent work"
                 className="mx-auto max-w-sm shadow-[var(--shadow-card)] lg:max-w-md"
               />
             </Reveal>

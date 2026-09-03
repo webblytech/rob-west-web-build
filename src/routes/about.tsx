@@ -53,8 +53,8 @@ function AboutPage() {
             <Reveal>
               <ImagePlaceholder
                 label="Rob's Photo"
+                imageSrc="/images/about-rob.jpg"
                 ratio="3/4"
-                note="Placeholder — add a portrait of Rob"
                 className="shadow-[var(--shadow-lift)]"
               />
             </Reveal>
@@ -116,8 +116,8 @@ function AboutPage() {
             <Reveal delay={80}>
               <ImagePlaceholder
                 label="Project Photo"
+                imageSrc="/images/recent-work-joinery.jpg"
                 ratio="4/3"
-                note="Placeholder — add a photo of recent work"
               />
             </Reveal>
           </div>
