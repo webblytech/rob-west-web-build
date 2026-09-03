@@ -17,7 +17,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { ReviewCard } from "@/components/site/ReviewCard";
 import { CtaSection } from "@/components/site/CtaSection";
-// import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import robPlumbingHero from "@/images/Rob-plumbing-hero.jpeg";
 import { WorkCarousel } from "@/components/site/WorkCarousel";
 import { Reveal } from "@/components/site/Reveal";
