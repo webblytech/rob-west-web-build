@@ -18,7 +18,7 @@ export function Footer() {
               <Phone className="size-5" aria-hidden="true" />
               {business.phoneDisplay}
             </a>
-            <Button asChild variant="onNavy" size="lg" className="mt-5 flex sm:inline-flex">
+            <Button asChild variant="onNavy" size="lg" className="mt-7 flex sm:inline-flex">
               <a href={business.phoneHref}>
                 <Phone aria-hidden="true" />
                 Call Rob
