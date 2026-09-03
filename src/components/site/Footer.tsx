@@ -11,19 +11,22 @@ export function Footer() {
           <div className="lg:col-span-2">
             <p className="text-lg font-extrabold">{business.name}</p>
             <p className="mt-1 text-sm text-navy-foreground/70">{business.tagline}</p>
+            <div className="mt-5 flex flex-col items-start gap-6">
             <a
               href={business.phoneHref}
-              className="mt-5 inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight hover:text-navy-foreground/80"
+              className="inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight hover:text-navy-foreground/80"
             >
               <Phone className="size-5" aria-hidden="true" />
               {business.phoneDisplay}
             </a>
-            <Button asChild variant="onNavy" size="lg" className="mt-12 flex sm:inline-flex">
+
+            <Button asChild variant="onNavy" size="lg">
               <a href={business.phoneHref}>
                 <Phone aria-hidden="true" />
                 Call Rob
               </a>
             </Button>
+          </div>
           </div>
 
           <nav aria-label="Footer">
