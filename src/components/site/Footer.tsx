@@ -92,6 +92,17 @@ export function Footer() {
           <p>
             Rated {business.rating} on Google from {business.reviewCount}+ reviews.
           </p>
+          <a
+            href="https://webbly.tech"
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-navy-foreground"
+          >
+            Created by{" "}
+            <span className="font-display text-lg font-bold tracking-tight">
+              Webbly<span className="text-mint">.</span>
+            </span>
+          </a>
         </div>
       </div>
     </footer>
