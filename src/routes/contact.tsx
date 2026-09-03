@@ -8,11 +8,11 @@ import { ContactForm } from "@/components/site/ContactForm";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { GoogleRating } from "@/components/site/StarRating";
+import { OpeningHours } from "@/components/site/OpeningHours";
 import { business } from "@/lib/business";
 
-const TITLE = "Contact Rob West Plumbing & Handyman";
-const DESC =
-  "Call Rob on 07884 584645 or send an enquiry about your plumbing or handyman job.";
+const TITLE = "Contact Rob West Plumbing And Handyman";
+const DESC = "Call Rob on 07884 584645 or send an enquiry about your plumbing or handyman job.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -68,8 +68,8 @@ function ContactPage() {
               <ContactForm />
             </Reveal>
 
-            <Reveal delay={80} as="div" className="space-y-4">
-              <div className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
+            <Reveal delay={80} as="div" className="space-y-3">
+              <div className="rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-card)]">
                 <h2 className="text-lg font-bold text-navy">Call Rob</h2>
                 <a
                   href={business.phoneHref}
@@ -79,24 +79,26 @@ function ContactPage() {
                   {business.phoneDisplay}
                 </a>
               </div>
-              <div className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
+              <div className="rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-card)]">
                 <h2 className="flex items-center gap-2 text-lg font-bold text-navy">
                   <MapPin className="size-5 text-primary" aria-hidden="true" />
-                  Service Area
+                  Business Address
                 </h2>
-                <p className="mt-2 text-sm text-muted-foreground">{business.areaPlaceholder}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{business.address}</p>
               </div>
-              <div className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
+              <div className="rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-card)]">
                 <h2 className="flex items-center gap-2 text-lg font-bold text-navy">
                   <Mail className="size-5 text-primary" aria-hidden="true" />
                   Email
                 </h2>
-                <p className="mt-2 text-sm text-muted-foreground">{business.emailPlaceholder}</p>
+                <a
+                  href={`mailto:${business.email}`}
+                  className="mt-2 inline-block text-sm text-muted-foreground hover:text-primary"
+                >
+                  {business.email}
+                </a>
               </div>
-              <div className="rounded-xl border border-dashed border-navy/20 bg-surface p-6">
-                <h2 className="text-lg font-bold text-navy">Opening Hours</h2>
-                <p className="mt-2 text-sm text-muted-foreground">[Add opening hours]</p>
-              </div>
+              <OpeningHours />
             </Reveal>
           </div>
         </section>

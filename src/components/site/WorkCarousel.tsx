@@ -1,20 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { cn } from "@/lib/utils";
 
-const SLIDES = [
-  { label: "Finished modern bathroom renovation", src: "/images/recent-work-bathroom.jpg" },
-  { label: "Plumber carrying out domestic plumbing work", src: "/images/recent-work-plumbing.jpg" },
-  { label: "Handyman installing shelving", src: "/images/recent-work-shelving.jpg" },
-  { label: "Finished carpentry and joinery project", src: "/images/recent-work-joinery.jpg" },
-  {
-    label: "Professional kitchen sink and tap installation",
-    src: "/images/recent-work-kitchen.jpg",
-  },
-  { label: "Handyman carrying out a domestic repair", src: "/images/recent-work-repair.jpg" },
-];
+const SLIDES = Array.from({ length: 7 }, (_, index) => ({
+  label: `Recent work photo ${index + 1}`,
+  src: `/images/work/work-${index + 1}.jpg`,
+}));
 
 export function WorkCarousel() {
   const [emblaRef, embla] = useEmblaCarousel({
@@ -26,6 +19,7 @@ export function WorkCarousel() {
   const [snaps, setSnaps] = useState<number[]>([]);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const onSelect = useCallback(() => {
     if (!embla) return;
@@ -41,8 +35,24 @@ export function WorkCarousel() {
     embla.on("select", onSelect).on("reInit", onSelect);
   }, [embla, onSelect]);
 
+  useEffect(() => {
+    if (!embla || !isPlaying || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+      return;
+    const interval = window.setInterval(() => {
+      if (embla.canScrollNext()) {
+        embla.scrollNext();
+      } else {
+        embla.scrollTo(0);
+      }
+    }, 3000);
+    return () => window.clearInterval(interval);
+  }, [embla, isPlaying]);
+
+  const pause = () => setIsPlaying(false);
+  const play = () => setIsPlaying(true);
+
   return (
-    <div>
+    <div onMouseEnter={pause} onMouseLeave={play} onFocus={pause} onBlur={play}>
       <div className="overflow-hidden" ref={emblaRef}>
         <ul className="-ml-4 flex touch-pan-y">
           {SLIDES.map((slide, i) => (
@@ -82,7 +92,19 @@ export function WorkCarousel() {
             />
           ))}
         </div>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setIsPlaying((playing) => !playing)}
+            aria-label={isPlaying ? "Pause automatic carousel" : "Play automatic carousel"}
+            className="flex size-11 items-center justify-center rounded-md border border-navy/15 bg-background text-navy transition-colors hover:bg-surface"
+          >
+            {isPlaying ? (
+              <Pause className="size-4" aria-hidden="true" />
+            ) : (
+              <Play className="size-4" aria-hidden="true" />
+            )}
+          </button>
           <button
             type="button"
             onClick={() => embla?.scrollPrev()}

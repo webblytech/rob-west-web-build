@@ -14,7 +14,7 @@ export function ImagePlaceholder({ label, imageSrc, ratio = "4/3", className }: 
     <div
       style={{ aspectRatio: ratio }}
       className={cn(
-        "relative w-full overflow-hidden rounded-lg border border-navy/10 bg-surface",
+        "image-frame relative w-full overflow-hidden rounded-lg border border-navy/10 bg-surface",
         className,
       )}
     >
