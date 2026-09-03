@@ -9,6 +9,7 @@ export function ServiceCard({
   title,
   description,
   imageLabel,
+  imageSrc,
   ctaLabel = "View Services",
   to = "/services",
   className,
@@ -17,6 +18,7 @@ export function ServiceCard({
   title: string;
   description: string;
   imageLabel?: string;
+  imageSrc?: string;
   ctaLabel?: string;
   to?: "/services" | "/contact";
   className?: string;
@@ -28,8 +30,13 @@ export function ServiceCard({
         className,
       )}
     >
-      {imageLabel ? (
-        <ImagePlaceholder label={imageLabel} ratio="16/9" className="rounded-none border-0 border-b" />
+      {imageLabel && imageSrc ? (
+        <ImagePlaceholder
+          label={imageLabel}
+          imageSrc={imageSrc}
+          ratio="16/9"
+          className="rounded-none border-0 border-b"
+        />
       ) : null}
       <div className="flex flex-1 flex-col p-6">
         <span className="flex size-11 items-center justify-center rounded-lg bg-surface text-primary">
