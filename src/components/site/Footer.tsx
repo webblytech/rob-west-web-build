@@ -11,7 +11,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <p className="text-lg font-extrabold">{business.name}</p>
             <p className="mt-1 text-sm text-navy-foreground/70">{business.tagline}</p>
-            <div className="mt-5 flex flex-col items-start gap-6">
+            <div className="mt-5 flex flex-row flex-wrap items-center gap-x-6 gap-y-3">
             <a
               href={business.phoneHref}
               className="inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight hover:text-navy-foreground/80"
