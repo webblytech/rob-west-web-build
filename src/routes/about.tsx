@@ -54,8 +54,8 @@ function AboutPage() {
           <div className="container-page grid items-start gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">
             <Reveal>
               <ImagePlaceholder
-                label="Rob West portrait"
-                imageSrc="/images/rob_portrait.png"
+                label="Rob's Photo"
+                imageSrc="/images/about-rob.jpg"
                 ratio="3/4"
                 className="mx-auto max-w-md shadow-[var(--shadow-lift)] lg:mx-0"
               />

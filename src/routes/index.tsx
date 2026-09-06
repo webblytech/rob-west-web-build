@@ -19,6 +19,7 @@ import { GoogleReviewsFrame } from "@/components/site/GoogleReviewsFrame";
 import { WorkCarousel } from "@/components/site/WorkCarousel";
 import { CtaSection } from "@/components/site/CtaSection";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
+import robPlumbingHero from "@/images/Rob-plumbing-hero.jpeg";
 import { Reveal } from "@/components/site/Reveal";
 import { GoogleRating, Stars } from "@/components/site/StarRating";
 import { business } from "@/lib/business";
@@ -106,9 +107,9 @@ function HomePage() {
             </Reveal>
             <Reveal delay={120} className="mt-4 self-center lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-8 lg:pl-4">
               <img
-                src="/images/rob_working.png"
+                src={robPlumbingHero}
                 alt="Rob West working on a plumbing job"
-                className="image-frame hero-float aspect-[16/9] w-full rounded-lg object-cover shadow-[var(--shadow-lift)]"
+                className="image-frame hero-float aspect-[4/3] w-full rounded-lg object-cover shadow-[var(--shadow-lift)]"
               />
             </Reveal>
             <Reveal className="lg:col-start-1 lg:row-start-2">
@@ -181,7 +182,7 @@ function HomePage() {
                   title="Plumbing Services"
                   description={PLUMBING_SUMMARY}
                   imageLabel="Plumbing Work"
-                  imageSrc="/images/plumbing-services.png"
+                  imageSrc="/images/plumbing-service.jpg"
                 />
               </Reveal>
               <Reveal delay={120}>
@@ -202,8 +203,8 @@ function HomePage() {
           <div className="container-page grid items-center gap-10 lg:grid-cols-2">
             <Reveal>
               <ImagePlaceholder
-                label="Rob West portrait"
-                imageSrc="/images/rob_portrait.png"
+                label="About Section Photo"
+                imageSrc="/images/about-rob.jpg"
                 ratio="3/4"
                 className="mx-auto max-w-sm shadow-[var(--shadow-card)] lg:max-w-md"
               />
