@@ -42,36 +42,36 @@ const SERVICE_GROUPS = {
     {
       title: "Leaks & Pipe Repairs",
       description: "Leak detection and repair, including plumbing pipe repair.",
-      imageSrc: "/images/work/work-1.jpg",
+      imageSrc: "/images/work/05-work-7.png",
     },
     {
       title: "Bathroom & Water Systems",
       description:
         "Shower, tap and toilet installation and repair, plus water-heater and water-tank installation and repair.",
-      imageSrc: "/images/work/work-2.jpg",
+      imageSrc: "/images/plumbing-services.png",
     },
     {
       title: "Drains, Sewers & Outdoor Plumbing",
       description: "Drain and sewer cleaning and repair, alongside outdoor plumbing-system repair.",
-      imageSrc: "/images/work/work-3.jpg",
+      imageSrc: "/images/work/07-work-9.png",
     },
   ],
   Handyman: [
     {
       title: "Bathroom Fixture Help",
       description: "Practical help with tap, shower and toilet installation or repair.",
-      imageSrc: "/images/work/work-4.jpg",
+      imageSrc: "/images/work/10-after-3.png",
     },
     {
       title: "Water & Pipe Repairs",
       description: "Help with pipe and water-tank repairs as part of wider home maintenance.",
-      imageSrc: "/images/work/work-5.jpg",
+      imageSrc: "/images/work/09-before-3.png",
     },
     {
       title: "Home & Outdoor Repairs",
       description:
         "General home repair help, including drain, sewer and outdoor plumbing-system work. Get in touch to discuss the job.",
-      imageSrc: "/images/work/work-6.jpg",
+      imageSrc: "/images/work/08-work-10.png",
     },
   ],
 } as const;
