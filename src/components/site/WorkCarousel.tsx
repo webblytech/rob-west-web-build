@@ -4,10 +4,18 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { cn } from "@/lib/utils";
 
-const SLIDES = Array.from({ length: 7 }, (_, index) => ({
-  label: `Recent work photo ${index + 1}`,
-  src: `/images/work/work-${index + 1}.jpg`,
-}));
+const SLIDES = [
+  { label: "Before photo 1", src: "/images/work/01-before-1.png", badge: "Before" },
+  { label: "After photo 1", src: "/images/work/02-after-1.png", badge: "After" },
+  { label: "Before photo 2", src: "/images/work/03-before-2.png", badge: "Before" },
+  { label: "After photo 2", src: "/images/work/04-after-2.png", badge: "After" },
+  { label: "Recent work photo 7", src: "/images/work/05-work-7.png", badge: null },
+  { label: "Recent work photo 8", src: "/images/work/06-work-8.png", badge: null },
+  { label: "Recent work photo 9", src: "/images/work/07-work-9.png", badge: null },
+  { label: "Recent work photo 10", src: "/images/work/08-work-10.png", badge: null },
+  { label: "Before photo 3", src: "/images/work/09-before-3.png", badge: "Before" },
+  { label: "After photo 3", src: "/images/work/10-after-3.png", badge: "After" },
+];
 
 export function WorkCarousel() {
   const [emblaRef, embla] = useEmblaCarousel({
@@ -62,7 +70,12 @@ export function WorkCarousel() {
               aria-roledescription="slide"
               aria-label={`Slide ${i + 1} of ${SLIDES.length}`}
             >
-              <div className="group overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-lift)]">
+              <div className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-lift)]">
+                {slide.badge && (
+                  <span className="absolute left-4 top-4 z-10 -rotate-3 rounded-sm bg-accent px-3 py-1 font-display text-xs font-bold uppercase tracking-[0.16em] text-accent-foreground shadow-md">
+                    {slide.badge}
+                  </span>
+                )}
                 <ImagePlaceholder
                   label={slide.label}
                   imageSrc={slide.src}
