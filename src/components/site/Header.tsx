@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { House, Info, Mail, Menu, Phone, Wrench, X } from "lucide-react";
+import { House, Images, Info, Mail, Menu, Phone, Wrench, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { business } from "@/lib/business";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { to: "/", label: "Home", icon: House },
   { to: "/services", label: "Services", icon: Wrench },
+  { to: "/gallery", label: "Gallery", icon: Images },
   { to: "/about", label: "About", icon: Info },
   { to: "/contact", label: "Contact", icon: Mail },
 ] as const;

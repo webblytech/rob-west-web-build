@@ -5,6 +5,7 @@ export const business = {
   tagline: "Plumbing & Handyman Services",
   phoneDisplay: "07884 584645",
   phoneHref: "tel:+447884584645",
+  whatsappHref: "https://wa.me/447884584645",
   address: "5 Dulverton Rd, Melton Mowbray, LE13 0SF",
   openingHours: {
     weekdays: "10:00am–7:00pm",

@@ -105,11 +105,13 @@ function HomePage() {
               </h1>
             </Reveal>
             <Reveal delay={120} className="mt-4 self-center lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-8 lg:pl-4">
-              <img
-                src="/images/rob_working.png"
-                alt="Rob West working on a plumbing job"
-                className="image-frame hero-float aspect-[16/9] w-full rounded-lg object-cover shadow-[var(--shadow-lift)]"
-              />
+              <div className="image-frame hero-float overflow-hidden rounded-lg shadow-[var(--shadow-lift)]">
+                <img
+                  src="/images/robert-hero.png"
+                  alt="Rob West working on a plumbing job"
+                  className="h-auto max-h-[38rem] w-full scale-[1.2] object-contain"
+                />
+              </div>
             </Reveal>
             <Reveal className="lg:col-start-1 lg:row-start-2">
               <p className="mt-3 max-w-lg text-lg leading-relaxed text-muted-foreground lg:mt-5">

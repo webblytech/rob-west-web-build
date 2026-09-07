@@ -117,9 +117,6 @@ function AboutPage() {
                 title="A Personal, Local Service"
                 description="Working with a local tradesperson means one point of contact throughout. You speak to Rob, explain the job, and agree how to move forward — no call centres or handovers."
               />
-              <p className="mt-6 text-muted-foreground">
-                [Add any further detail about how Rob works with customers here.]
-              </p>
             </Reveal>
             <Reveal delay={80}>
               <ImagePlaceholder

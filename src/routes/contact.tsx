@@ -50,12 +50,19 @@ function ContactPage() {
               {business.phoneDisplay}
             </a>
             <div className="mt-6">
-              <Button asChild variant="onNavy" size="xl">
-                <a href={business.phoneHref}>
-                  <Phone aria-hidden="true" />
-                  Call Rob
-                </a>
-              </Button>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild variant="onNavy" size="xl">
+                  <a href={business.phoneHref}>
+                    <Phone aria-hidden="true" />
+                    Call Rob
+                  </a>
+                </Button>
+                <Button asChild variant="outlineOnNavy" size="xl">
+                  <a href={business.whatsappHref} target="_blank" rel="noreferrer">
+                    💬 WhatsApp Rob
+                  </a>
+                </Button>
+              </div>
             </div>
             <a
               href={`mailto:${business.email}`}
