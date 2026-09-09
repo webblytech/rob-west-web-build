@@ -68,25 +68,18 @@ function AboutPage() {
               />
               <div className="mt-5 space-y-4">
                 <p className="text-navy">
-                  Hi, I'm Rob, a plumber and handyman based in Melton Mowbray. I provide reliable
-                  plumbing and handyman services to homeowners across Melton and the surrounding
-                  areas, generally within around an hour's drive.
+                  Hi, I'm Rob, a fully qualified plumber and handyman based in Melton Mowbray.
+                  I provide reliable plumbing and handyman services to homeowners across Melton
+                  and the surrounding areas.
                 </p>
                 <p className="text-navy">
-                  I'm a friendly, conscientious and fully qualified plumber, and I take pride in
-                  doing a thorough job. I undertake almost every aspect of plumbing, apart from gas
-                  work, and I also offer a range of handyman services, including painting and
-                  decorating, flat-pack furniture assembly, replacing silicone, fitting shelves,
-                  curtain poles and skirting boards, and other general DIY tasks.
+                  I handle most plumbing work (except gas) and offer a range of handyman services
+                  including painting, decorating, flat-pack assembly, shelving, curtain poles and
+                  general DIY tasks. I charge £30 per hour or £200 per day, with no call-out fees.
                 </p>
                 <p className="text-navy">
-                  I charge £30 per hour or £200 per day for labour, with no call-out fees. Where
-                  possible, I'll arrange a video call beforehand to understand what work is needed.
-                </p>
-                <p className="text-navy">
-                  I'm punctual, reliable and always aim to arrive at the agreed time. If you need
-                  help with plumbing, maintenance or general handyman work, please feel free to
-                  call, message or email me.
+                  I'm punctual and reliable, and I'll arrange a video call beforehand where
+                  possible. Feel free to call, message or email if you need any help.
                 </p>
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
