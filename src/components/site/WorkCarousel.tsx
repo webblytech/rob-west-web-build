@@ -12,7 +12,14 @@ import {
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { cn } from "@/lib/utils";
 
-const SLIDES = [
+type Slide = {
+  label: string;
+  src: string;
+  badge: string | null;
+  description: string;
+};
+
+const SLIDES: Slide[] = [
   {
     label: "Before photo 1",
     src: "/images/work/01-before-1.png",
@@ -73,9 +80,52 @@ const SLIDES = [
     badge: "After",
     description: "The completed result after the plumbing and finishing work.",
   },
+  {
+    label: "Pipe project before work",
+    src: "/images/pipe-before.png",
+    badge: "Before",
+    description: "The pipework before the repair and improvement work began.",
+  },
+  {
+    label: "Pipe project before work 2",
+    src: "/images/pipe-before2.png",
+    badge: "Before",
+    description: "A second view of the pipework before the repair work began.",
+  },
+  {
+    label: "Pipe project during work",
+    src: "/images/pipe-during.png",
+    badge: "During",
+    description: "The pipework during the repair and improvement work.",
+  },
+  {
+    label: "Pipe project during work 2",
+    src: "/images/pipe-during2.png",
+    badge: "During",
+    description: "A second view of the pipework while the work was in progress.",
+  },
+  {
+    label: "Pipe project finished",
+    src: "/images/pipe-finished.png",
+    badge: "After",
+    description: "The finished pipework after the repair work was completed.",
+  },
+  {
+    label: "Pipe project after work",
+    src: "/images/pipe-after.png",
+    badge: "After",
+    description: "The completed pipework after the repair and improvement work.",
+  },
 ];
 
-export function WorkCarousel() {
+const RECENT_SLIDES = [
+  ...SLIDES,
+  SLIDES.find(({ src }) => src === "/images/pipe-before.png")!,
+  SLIDES.find(({ src }) => src === "/images/pipe-during.png")!,
+  SLIDES.find(({ src }) => src === "/images/pipe-after.png")!,
+];
+
+export function WorkCarousel({ slides = SLIDES }: { slides?: readonly Slide[] }) {
   const [emblaRef, embla] = useEmblaCarousel({
     align: "start",
     loop: false,
@@ -110,7 +160,7 @@ export function WorkCarousel() {
       } else {
         embla.scrollTo(0);
       }
-    }, 3000);
+    }, 1700);
     return () => window.clearInterval(interval);
   }, [embla, isPlaying]);
 
@@ -121,12 +171,12 @@ export function WorkCarousel() {
     <div onMouseEnter={pause} onMouseLeave={play} onFocus={pause} onBlur={play}>
       <div className="overflow-hidden" ref={emblaRef}>
         <ul className="-ml-4 flex touch-pan-y">
-          {SLIDES.map((slide, i) => (
+          {slides.map((slide, i) => (
             <li
               key={i}
               className="min-w-0 shrink-0 grow-0 basis-[85%] pl-4 sm:basis-1/2 lg:basis-1/3"
               aria-roledescription="slide"
-              aria-label={`Slide ${i + 1} of ${SLIDES.length}`}
+              aria-label={`Slide ${i + 1} of ${slides.length}`}
             >
               <div className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-lift)]">
                 {slide.badge && (
@@ -226,3 +276,5 @@ export function WorkCarousel() {
     </div>
   );
 }
+
+export { RECENT_SLIDES };

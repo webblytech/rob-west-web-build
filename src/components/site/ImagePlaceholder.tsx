@@ -6,10 +6,17 @@ type Props = {
   /** e.g. "4/3", "16/9", "3/4" */
   ratio?: string;
   className?: string;
+  imageClassName?: string;
   note?: string;
 };
 
-export function ImagePlaceholder({ label, imageSrc, ratio = "4/3", className }: Props) {
+export function ImagePlaceholder({
+  label,
+  imageSrc,
+  ratio = "4/3",
+  className,
+  imageClassName,
+}: Props) {
   return (
     <div
       style={{ aspectRatio: ratio }}
@@ -18,7 +25,12 @@ export function ImagePlaceholder({ label, imageSrc, ratio = "4/3", className }: 
         className,
       )}
     >
-      <img src={imageSrc} alt={label} loading="lazy" className="size-full object-cover" />
+      <img
+        src={imageSrc}
+        alt={label}
+        loading="lazy"
+        className={cn("size-full object-cover", imageClassName)}
+      />
     </div>
   );
 }
