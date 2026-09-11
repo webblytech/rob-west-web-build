@@ -16,7 +16,7 @@ import { StickyCallBar } from "@/components/site/StickyCallBar";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { GoogleReviewsFrame } from "@/components/site/GoogleReviewsFrame";
-import { WorkCarousel } from "@/components/site/WorkCarousel";
+import { RECENT_SLIDES, WorkCarousel } from "@/components/site/WorkCarousel";
 import { CtaSection } from "@/components/site/CtaSection";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Reveal } from "@/components/site/Reveal";
@@ -145,6 +145,14 @@ function HomePage() {
               <div className="mt-5 border-t border-border pt-5 lg:mt-6">
                 <GoogleRating />
               </div>
+
+                            <Link
+                              to="/about"
+                              className="mx-auto mt-4 block max-w-2xl text-sm font-semibold text-navy underline decoration-primary/60 underline-offset-4 transition-colors hover:text-primary"
+                            >
+                              Qualified with a Level 2 NVQ Diploma in Plumbing and Heating (3 modules) and a
+                              Level 2 Diploma in Plumbing Studies (15+ modules).
+                            </Link>
             </Reveal>
           </div>
         </section>
@@ -298,7 +306,7 @@ function HomePage() {
               />
             </Reveal>
             <Reveal delay={80} className="mt-10">
-              <WorkCarousel />
+              <WorkCarousel slides={RECENT_SLIDES} />
             </Reveal>
           </div>
         </section>

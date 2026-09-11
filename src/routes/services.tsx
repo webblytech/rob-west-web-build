@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { CtaSection } from "@/components/site/CtaSection";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { GoogleReviewsFrame } from "@/components/site/GoogleReviewsFrame";
-import { WorkCarousel } from "@/components/site/WorkCarousel";
+import { RECENT_SLIDES, WorkCarousel } from "@/components/site/WorkCarousel";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { GoogleRating } from "@/components/site/StarRating";
@@ -174,7 +174,7 @@ function ServicesPage() {
               />
             </Reveal>
             <Reveal delay={80} className="mt-10">
-              <WorkCarousel />
+              <WorkCarousel slides={RECENT_SLIDES} />
             </Reveal>
           </div>
         </section>

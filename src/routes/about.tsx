@@ -106,6 +106,27 @@ function AboutPage() {
         </section>
 
         <section className="bg-surface section-y">
+          <div className="container-page grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+            <Reveal>
+              <ImagePlaceholder
+                label="Rob West plumbing qualifications"
+                imageSrc="/images/rob-certifications.png"
+                ratio="4/3"
+                imageClassName="object-contain"
+                className="bg-background p-2 shadow-[var(--shadow-card)]"
+              />
+            </Reveal>
+            <Reveal delay={80}>
+              <SectionHeading
+                eyebrow="Qualifications"
+                title="Rob Has Achieved"
+                description="Level 2 NVQ Diploma in Plumbing and Heating, with success in 3 modules, and a Level 2 Diploma in Plumbing Studies, with success in 15+ modules."
+              />
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="bg-surface section-y">
           <div className="container-page">
             <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[0.7fr_1.3fr]">
               <Reveal className="rounded-xl border border-border bg-card p-8 text-center shadow-[var(--shadow-card)]">
