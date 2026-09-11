@@ -96,10 +96,10 @@ function HomePage() {
           <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 bg-surface lg:block" />
           <div className="container-page relative grid items-center gap-1 pt-5 pb-14 lg:grid-cols-2 lg:gap-10 lg:py-24">
             <Reveal className="lg:col-start-1 lg:row-start-1">
-              {/* <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-primary">
+              <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-primary">
                 <Wrench className="size-3.5" aria-hidden="true" />
                 Plumbing &amp; Handyman
-              </p> */}
+              </p>
               <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-navy sm:text-5xl lg:mt-8 lg:text-[3.4rem]">
                 Reliable Plumbing &amp; Handyman Services
               </h1>

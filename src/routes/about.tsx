@@ -66,13 +66,27 @@ function AboutPage() {
                 title="About Rob West Plumbing And Handyman"
                 description="Rob West Plumbing And Handyman offers plumbing and handyman assistance for local homeowners."
               />
-              <div className="mt-5 space-y-3 rounded-xl border border-dashed border-navy/20 bg-surface p-5 sm:p-6">
-                <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-                  Placeholder content
+              <div className="mt-5 space-y-4">
+                <p className="text-navy">
+                  Hi, I'm Rob, a plumber and handyman based in Melton Mowbray. I provide reliable
+                  plumbing and handyman services to homeowners across Melton and the surrounding
+                  areas, generally within around an hour's drive.
                 </p>
-                <p className="text-navy">[Add Rob's background, experience and approach here.]</p>
-                <p className="text-sm text-muted-foreground">
-                  [Add any further detail Rob would like included on this page.]
+                <p className="text-navy">
+                  I'm a friendly, conscientious and fully qualified plumber, and I take pride in
+                  doing a thorough job. I undertake almost every aspect of plumbing, apart from gas
+                  work, and I also offer a range of handyman services, including painting and
+                  decorating, flat-pack furniture assembly, replacing silicone, fitting shelves,
+                  curtain poles and skirting boards, and other general DIY tasks.
+                </p>
+                <p className="text-navy">
+                  I charge £30 per hour or £200 per day for labour, with no call-out fees. Where
+                  possible, I'll arrange a video call beforehand to understand what work is needed.
+                </p>
+                <p className="text-navy">
+                  I'm punctual, reliable and always aim to arrive at the agreed time. If you need
+                  help with plumbing, maintenance or general handyman work, please feel free to
+                  call, message or email me.
                 </p>
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
