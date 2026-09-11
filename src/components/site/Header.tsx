@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { House, Images, Info, Mail, Menu, Phone, X } from "lucide-react";
+import { House, Images, Info, Mail, Menu, Phone, Wrench, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { business } from "@/lib/business";
 import { cn } from "@/lib/utils";
@@ -45,7 +45,17 @@ export function Header() {
           onClick={() => setOpen(false)}
           aria-label={`${business.name} — home`}
         >
-          <img src="/images/rob logo.png" alt={business.name} className="h-10 lg:h-12 w-auto" />
+          <span className="flex size-9 items-center justify-center rounded-md bg-navy text-navy-foreground">
+            <Wrench className="size-4.5" aria-hidden="true" />
+          </span>
+          <span className="leading-tight">
+            <span className="block text-[0.95rem] font-extrabold text-navy sm:text-base">
+              Rob West
+            </span>
+            <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              Plumbing &amp; Handyman
+            </span>
+          </span>
         </Link>
 
         <nav aria-label="Main" className="hidden lg:block">
