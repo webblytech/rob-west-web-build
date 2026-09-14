@@ -27,8 +27,14 @@ const SLIDES: Slide[] = [
     description: "The original space before the plumbing and finishing work began.",
   },
   {
-    label: "After photo 1",
+    label: "During photo 1",
     src: "/images/work/02-after-1.png",
+    badge: "During",
+    description: "The plumbing and finishing work in progress.",
+  },
+  {
+    label: "After photo 1",
+    src: "/images/after-1.png",
     badge: "After",
     description: "The completed plumbing and finishing work, ready for everyday use.",
   },
@@ -51,10 +57,22 @@ const SLIDES: Slide[] = [
     description: "Bathroom refresh with a new basin, tap, wall panelling and finishing details.",
   },
   {
-    label: "Bedroom timber divider",
+    label: "Bedroom indoors before work",
+    src: "/images/before-indoors.png",
+    badge: "Before",
+    description: "The bedroom before the timber divider and doorway work began.",
+  },
+  {
+    label: "Bedroom indoors during work",
+    src: "/images/during-indoors.png",
+    badge: "During",
+    description: "The bedroom while the timber divider and doorway work was in progress.",
+  },
+  {
+    label: "Bedroom timber divider after work",
     src: "/images/work/06-work-8.png",
-    badge: null,
-    description: "Built and finished a timber room divider and doorway feature in a bedroom.",
+    badge: "After",
+    description: "The completed timber room divider and doorway feature in the bedroom.",
   },
   {
     label: "Tiled bathroom finish",
@@ -81,16 +99,22 @@ const SLIDES: Slide[] = [
     description: "The completed result after the plumbing and finishing work.",
   },
   {
-    label: "Pipe project before work",
-    src: "/images/pipe-before.png",
+    label: "Pipe project started",
+    src: "/images/pipe-finished.png",
     badge: "Before",
-    description: "The pipework before the repair and improvement work began.",
+    description: "The finished pipework before the repair work was completed.",
   },
   {
     label: "Pipe project before work 2",
     src: "/images/pipe-before2.png",
     badge: "Before",
     description: "A second view of the pipework before the repair work began.",
+  },
+  {
+    label: "Pipe project before work",
+    src: "/images/pipe-before.png",
+    badge: "During",
+    description: "The pipework during the repair and improvement work began.",
   },
   {
     label: "Pipe project during work",
@@ -105,12 +129,6 @@ const SLIDES: Slide[] = [
     description: "A second view of the pipework while the work was in progress.",
   },
   {
-    label: "Pipe project finished",
-    src: "/images/pipe-finished.png",
-    badge: "After",
-    description: "The finished pipework after the repair work was completed.",
-  },
-  {
     label: "Pipe project after work",
     src: "/images/pipe-after.png",
     badge: "After",
@@ -118,12 +136,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const RECENT_SLIDES = [
-  ...SLIDES,
-  SLIDES.find(({ src }) => src === "/images/pipe-before.png")!,
-  SLIDES.find(({ src }) => src === "/images/pipe-during.png")!,
-  SLIDES.find(({ src }) => src === "/images/pipe-after.png")!,
-];
+const RECENT_SLIDES = SLIDES;
 
 export function WorkCarousel({ slides = SLIDES }: { slides?: readonly Slide[] }) {
   const [emblaRef, embla] = useEmblaCarousel({

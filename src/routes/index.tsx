@@ -4,6 +4,7 @@ import {
   Hammer,
   MapPin,
   MessageSquare,
+  Paintbrush,
   Phone,
   ShieldCheck,
   Star,
@@ -96,7 +97,7 @@ function HomePage() {
           <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 bg-surface lg:block" />
           <div className="container-page relative grid items-center gap-1 pt-5 pb-14 lg:grid-cols-2 lg:gap-10 lg:py-24">
             <Reveal className="lg:col-start-1 lg:row-start-1">
-              <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-primary">
+              <p className="hidden items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-primary lg:inline-flex">
                 <Wrench className="size-3.5" aria-hidden="true" />
                 Plumbing &amp; Handyman
               </p>
@@ -184,7 +185,17 @@ function HomePage() {
                 description="Plumbing services alongside practical handyman help for local homeowners."
               />
             </Reveal>
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              <Reveal delay={180}>
+                <ServiceCard
+                  icon={Paintbrush}
+                  title="Painting Services"
+                  description="Interior painting and finishing work to refresh and improve your home."
+                  imageLabel="Painting Work"
+                  imageSrc="/images/painting.png"
+                  imageClassName="object-contain bg-white"
+                />
+              </Reveal>
               <Reveal delay={60}>
                 <ServiceCard
                   icon={Droplets}
@@ -200,7 +211,8 @@ function HomePage() {
                   title="Handyman Services"
                   description={HANDYMAN_SUMMARY}
                   imageLabel="Handyman Work"
-                  imageSrc="/images/handyman-service.jpg"
+                  imageSrc="/images/rob_working.png"
+                  imageClassName="object-contain bg-white"
                 />
               </Reveal>
             </div>
