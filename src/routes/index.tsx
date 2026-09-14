@@ -24,7 +24,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { GoogleRating, Stars } from "@/components/site/StarRating";
 import { business } from "@/lib/business";
 
-const TITLE = "Rob West Plumbing And Handyman | Plumbing & Handyman Services";
+const TITLE = "Rob West Plumbing And Handyman Services";
 const DESC =
   "Rob West Plumbing And Handyman provides plumbing and handyman help. Rated 5.0 on Google from 31+ reviews. Call Rob on 07884 584645.";
 
