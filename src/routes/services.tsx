@@ -13,6 +13,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { GoogleRating } from "@/components/site/StarRating";
 import { business } from "@/lib/business";
+import { ServicePhotoCarousel } from "@/components/site/ServicePhotoCarousel";
 
 const TITLE = "Plumbing & Handyman Services | Rob West";
 const DESC =
@@ -65,7 +66,7 @@ const SERVICE_GROUPS = {
     {
       title: "Water & Pipe Repairs",
       description: "Help with pipe and water-tank repairs as part of wider home maintenance.",
-      imageSrc: "/images/work/09-before-3.png",
+      imageSrc: "/images/pipe-during2.png",
     },
     {
       title: "Home & Outdoor Repairs",
@@ -88,6 +89,7 @@ function ServiceGrid({ kind }: { kind: "Plumbing" | "Handyman" }) {
               imageSrc={service.imageSrc}
               ratio="16/9"
               className="rounded-none border-0 border-b"
+              imageClassName="object-contain bg-white"
             />
             <div className="flex flex-1 flex-col p-5">
               <span className="flex size-10 items-center justify-center rounded-lg bg-surface text-primary">
@@ -135,6 +137,21 @@ function ServicesPage() {
               </Button>
             </div>
             <GoogleRating tone="dark" className="mt-6" />
+          </div>
+        </section>
+
+        <section className="section-y">
+          <div className="container-page">
+            <Reveal>
+              <SectionHeading
+                eyebrow="Painting"
+                title="Painting Services"
+                description="Interior painting and finishing work to refresh and improve your home."
+              />
+            </Reveal>
+            <Reveal delay={80} className="mt-8">
+              <ServicePhotoCarousel />
+            </Reveal>
           </div>
         </section>
 

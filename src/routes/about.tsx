@@ -80,7 +80,7 @@ function AboutPage() {
                   curtain poles and skirting boards, and other general DIY tasks.
                 </p>
                 <p className="text-navy">
-                  I charge £30 per hour or £200 per day for labour, with no call-out fees. Where
+                  I charge £40 per hour or £200 per day for labour, with no call-out fees. Where
                   possible, I'll arrange a video call beforehand to understand what work is needed.
                 </p>
                 <p className="text-navy">
